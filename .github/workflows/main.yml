@@ -1,0 +1,26 @@
+name: Hello World Test
+
+# Controls when the workflow will run
+on:  
+  push:
+    branches: [ main ]
+    
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v1
+        
+      - name: Install Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.8"
+      
+      - name: Run Python File
+        run: python say_hello.py
