@@ -18,6 +18,10 @@ jobs:
   say-hello:
     runs-on: ubuntu-latest
     
+    strategy:
+      matrix:
+        versions: ["2.8", "3.8"]
+    
     steps:
       - name: Checkout repo
         uses: actions/checkout@v1
@@ -25,7 +29,7 @@ jobs:
       - name: Install Python
         uses: actions/setup-python@v2
         with:
-          python-version: "3.8"
+          python-version: ${{ matrix.versions }}
       
       - name: Run Python File
         run: python say_hello.py --name ${{ github.event.inputs.name }}
