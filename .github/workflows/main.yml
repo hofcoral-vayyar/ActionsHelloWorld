@@ -20,7 +20,7 @@ jobs:
     
     strategy:
       matrix:
-        versions: ["2.8", "3.8"]
+        versions: ["2.x", "3.8"]
     
     steps:
       - name: Checkout repo
